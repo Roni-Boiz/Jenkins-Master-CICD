@@ -12,30 +12,30 @@ pipeline {
             }
         }
         stage("Checkout from SCM") {
-               steps {
-                   git branch: 'main', credentialsId: 'github', url: 'https://github.com/Roni-Boiz/Jenkins-Master-CICD'
-               }
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/Roni-Boiz/Jenkins-Master-CICD'
+            }
         }
         stage("Update the Deployment Tags") {
             steps {
                 def deploymentFile = "manifest/deployment.yaml"
                 sh """
-                   cat ${deploymentFile}
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' ${deploymentFile}
-                   cat ${deploymentFile}
+                    cat ${deploymentFile}
+                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' ${deploymentFile}
+                    cat ${deploymentFile}
                 """
             }
         }
         stage("Push the changed deployment file to Git") {
             steps {
                 sh """
-                   git config --global user.name "Roni-Boiz"
-                   git config --global user.email "2019cs155@stu.ucsc.lk"
-                   git add manifest/deployment.yaml
-                   git commit -m "Updated Deployment Manifest"
+                    git config --global user.name "Roni-Boiz"
+                    git config --global user.email "2019cs155@stu.ucsc.lk"
+                    git add manifest/deployment.yaml
+                    git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/Roni-Boiz/Jenkins-Master-CICD main"
+                    sh "git push https://github.com/Roni-Boiz/Jenkins-Master-CICD main"
                 }
             }
         }
