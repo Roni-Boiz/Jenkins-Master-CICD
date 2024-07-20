@@ -38,14 +38,14 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-                    <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-war-plugin</artifactId>
-                   <version>3.3.2</version>
-                   <configuration>
-                       <failOnMissingWebXml>false</failOnMissingWebXml>
-                   </configuration>
-              </plugin>
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-war-plugin</artifactId>
+           <version>3.3.2</version>
+           <configuration>
+               <failOnMissingWebXml>false</failOnMissingWebXml>
+           </configuration>
+        </plugin>
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
@@ -214,10 +214,10 @@
   </dependencyManagement>
 
   <scm>
-    <connection>scm:git:git@github.com:jleetutorial/maven-project.git</connection>
-    <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
+    <connection>scm:git:git@github.com:Roni-Boiz/Jenkins-Master-CICD</connection>
+    <developerConnection>scm:git:git@github.com:Roni-Boiz/Jenkins-Master-CICD</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/jleetutorial/maven-project</url>
+    <url>http://github.com/Roni-Boiz/Jenkins-Master-CICD</url>
   </scm>
 
   <prerequisites>
